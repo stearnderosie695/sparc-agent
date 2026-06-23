@@ -1,0 +1,14 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/h5_dermoscopy
+stock:
+  corpus: hsi_dermoscopy
+  n_bands: 16
+  band_lo: 465.0
+  band_hi: 630.0
+  tile: 128
+emulsion:
+  in_bands: 16
+  patch: 16
+enlarger:
+  n_classes: 2

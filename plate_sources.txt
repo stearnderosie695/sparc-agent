@@ -1,0 +1,22 @@
+PLATE SOURCES
+Hyperspectral corpora consumed by the auxiliary layer (backbone pre-training,
+cross-tissue invariance, external comparison). The primary-validation sarcoma
+layer is a private de-identified clinical cohort and is not redistributable;
+the loader synthesises a planted-signal stand-in when it is absent.
+
+Each entry: key | name | bands / range | split convention | license | access
+
+helicoid | HELICoiD in-vivo human brain HSI | ~826 bands, 400-1000 nm | patient-level 60/20/20 (~20/7/7 patients) | research use, credentials by request | https://hsibraindatabase.iuma.ulpgc.es/
+    note: per-image password issued after emailing name, organisation and research description.
+
+heiporspectral | HeiPorSPECTRAL porcine multi-organ HSI | 100 bands, 500-1000 nm, 20 organs, 11 pigs | leave-pig-out 8/1/2 | CC-BY-4.0 | https://doi.org/10.5281/zenodo.7737674
+    note: 5,758 cubes, total volume ~66 GB on Zenodo record 7737674.
+
+odsi_db | ODSI-DB oral and dental reflectance spectral images | variable band count, visible-NIR | dataset official partition, long-tailed 35-class | CC-BY-NC-SA-4.0 | https://sites.uef.fi/spectral/databases-software/odsi-db/
+    note: 316 images (215 expert-annotated) from 30 subjects, ~34 GB multipage TIFF.
+
+hsi_dermoscopy | HSI Dermoscopy melanoma corpus | 16 bands, 465-630 nm, 512x272 | lesion-level malignant-vs-benign | no explicit license stated by authors | https://github.com/heugyy/HSIDermoscopy
+    note: 330 cubes (melanoma 80 / dysplastic naevus 180 / other 70); cubes hosted on Google Drive / Dropbox linked from the repository.
+
+All four links checked reachable on 2025; corpora that become unreachable are
+dropped rather than mirrored.

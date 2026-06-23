@@ -1,0 +1,15 @@
+emulsion:
+  in_bands: 826
+  patch: 16
+  d_emb: 768
+  backbone_depth: 11
+  backbone_heads: 8
+  spectral_tokens: 64
+  adapter_depth: 1
+  lora_rank: 16
+  lora_every: 2
+  mamba_blocks: 6
+  fuse_width: 512
+  d_state: 16
+  mamba_expand: 1
+  freeze_backbone: true

@@ -1,0 +1,10 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/cross_tissue
+stock:
+  corpus: sarcoma_synth
+  tile: 128
+enlarger:
+  n_classes: 4
+negative:
+  seeds: 20

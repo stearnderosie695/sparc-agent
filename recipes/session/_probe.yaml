@@ -1,0 +1,31 @@
+run:
+  seed: 0
+  device: cpu
+  out_dir: darkroom_runs/_probe
+  world_size: 1
+  precision: fp32
+stock:
+  corpus: sarcoma_synth
+  n_bands: 826
+  tile: 32
+  micro_batch: 2
+  num_workers: 0
+emulsion:
+  backbone_depth: 2
+  d_emb: 128
+  spectral_tokens: 12
+  fuse_width: 96
+  mamba_blocks: 2
+enlarger:
+  planning_steps: 4
+  router_hidden: 64
+  pareto:
+    width: 64
+    pref_embed: 32
+    n_pref_samples: 8
+bath:
+  epochs: 4
+  lr: 1.0e-3
+  warmup_steps: 2
+  grad_accum: 1
+  a3c_workers: 2

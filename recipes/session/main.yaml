@@ -1,0 +1,81 @@
+run:
+  seed: 20
+  device: cuda
+  out_dir: darkroom_runs/main
+  world_size: 8
+  precision: bf16
+  log_every: 50
+stock:
+  corpus: sarcoma_synth
+  root: plates
+  n_bands: 826
+  band_lo: 400.0
+  band_hi: 1000.0
+  tile: 256
+  micro_batch: 2
+  num_workers: 8
+  slope_center: 975.0
+  slope_halfwidth: 25.0
+  synth_patients: 386
+  synth_centres: 4
+  synth_regions: 2
+emulsion:
+  in_bands: 826
+  patch: 16
+  d_emb: 768
+  backbone_depth: 11
+  backbone_heads: 8
+  spectral_tokens: 64
+  adapter_depth: 1
+  lora_rank: 16
+  lora_every: 2
+  mamba_blocks: 6
+  fuse_width: 512
+  d_state: 16
+  mamba_expand: 1
+  freeze_backbone: true
+enlarger:
+  n_classes: 4
+  tumour_index: 1
+  tau_spec: 0.55
+  tau_atlas: 0.5
+  t_calib: 1.7
+  latency_budget_s: 5.2
+  planning_steps: 15
+  reward_alpha: [1.0, 1.0, 0.05, 2.0]
+  margin_threshold_mm: 1.0
+  pixel_mm: 0.4
+  max_radius: 6
+  eps_overlap: 0.05
+  homogeneity_thresh: 0.06
+  gamma: 0.99
+  router_hidden: 512
+  router_depth: 3
+  pareto:
+    film_layers: 6
+    width: 512
+    pref_embed: 256
+    context_dim: 8
+    dirichlet_alpha: [1.0, 1.0, 1.0]
+    n_pref_samples: 64
+    eps_c: 0.1
+bath:
+  epochs: 800
+  lr: 3.0e-6
+  warmup_steps: 12000
+  weight_decay: 0.05
+  grad_accum: 64
+  grad_clip: 1.0
+  ema_decay: 0.9999
+  scheduler: cosine
+  a3c_workers: 8
+  a3c_sync: false
+  entropy_coef: 0.01
+  value_coef: 0.5
+  pareto_coef: 0.5
+  transfer_coef: 0.1
+negative:
+  seeds: 20
+  bootstrap: 2000
+  fdr_q: 0.05
+  pareto_ref: [0.0, 0.0, 0.0]

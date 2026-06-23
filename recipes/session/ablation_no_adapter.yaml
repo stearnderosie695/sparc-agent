@@ -1,0 +1,9 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/ablation_no_adapter
+stock:
+  corpus: sarcoma_synth
+  tile: 128
+emulsion:
+  adapter_depth: 0
+  lora_rank: 4

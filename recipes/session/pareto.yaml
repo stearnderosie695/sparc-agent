@@ -1,0 +1,15 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/pareto
+stock:
+  corpus: heiporspectral
+  n_bands: 100
+  band_lo: 500.0
+  band_hi: 1000.0
+  tile: 128
+emulsion:
+  in_bands: 100
+enlarger:
+  pareto:
+    n_pref_samples: 32
+    eps_c: 0.1

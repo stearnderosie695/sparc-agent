@@ -1,0 +1,8 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/h4_biomarker
+stock:
+  corpus: sarcoma_synth
+  tile: 128
+  slope_center: 975.0
+  slope_halfwidth: 25.0

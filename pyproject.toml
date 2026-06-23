@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectral-margin-agent"
+version = "0.4.1"
+description = "Calibrated tool-routing hyperspectral agent for surgical margin and critical-structure assessment"
+requires-python = "==3.10.*"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Surgical Hyperspectral Group" }]
+dependencies = [
+    "torch==2.3.0",
+    "numpy==1.26.4",
+    "scipy==1.11.4",
+    "scikit-learn==1.3.2",
+    "omegaconf==2.3.0",
+    "docopt==0.6.2",
+    "einops==0.7.0",
+    "PyYAML==6.0.1",
+    "monai==1.4.0",
+]
+
+[project.optional-dependencies]
+accel = [
+    "mamba-ssm==2.2.2",
+    "causal-conv1d==1.4.0",
+    "transformers==4.45.2",
+]
+dev = [
+    "pytest==8.0.2",
+    "ruff==0.3.0",
+    "black==24.2.0",
+    "isort==5.13.2",
+    "mypy==1.8.0",
+]
+
+[project.scripts]
+darkroom = "spectral_margin_agent.console.entry:main"
+
+[tool.setuptools.packages.find]
+include = ["spectral_margin_agent*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["spectral_margin_agent"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "UP", "NPY"]
+ignore = ["B008", "B905", "NPY002"]
+
+[tool.pytest.ini_options]
+testpaths = ["proofs"]
+addopts = "-q"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore:Converting a tensor with requires_grad:UserWarning",
+]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["spectral_margin_agent"]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = false
+no_implicit_optional = true
+ignore_missing_imports = true
+follow_imports = "silent"
+
+[[tool.mypy.overrides]]
+module = ["spectral_margin_agent.console.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false

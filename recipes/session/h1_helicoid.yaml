@@ -1,0 +1,13 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/h1_helicoid
+stock:
+  corpus: helicoid
+  n_bands: 826
+  band_lo: 400.0
+  band_hi: 1000.0
+  tile: 128
+emulsion:
+  in_bands: 826
+enlarger:
+  n_classes: 4

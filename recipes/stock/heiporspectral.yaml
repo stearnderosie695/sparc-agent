@@ -1,0 +1,8 @@
+stock:
+  corpus: heiporspectral
+  n_bands: 100
+  band_lo: 500.0
+  band_hi: 1000.0
+  tile: 256
+emulsion:
+  in_bands: 100

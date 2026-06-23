@@ -1,0 +1,8 @@
+run:
+  seed: 20
+  out_dir: darkroom_runs/ablation_no_mamba
+stock:
+  corpus: sarcoma_synth
+  tile: 128
+emulsion:
+  mamba_blocks: 0

@@ -1,0 +1,10 @@
+bath:
+  epochs: 800
+  lr: 3.0e-6
+  warmup_steps: 12000
+  weight_decay: 0.05
+  grad_accum: 64
+  grad_clip: 1.0
+  ema_decay: 0.9999
+  scheduler: cosine
+  a3c_workers: 8
